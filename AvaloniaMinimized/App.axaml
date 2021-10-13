@@ -1,0 +1,19 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AvaloniaMinimized.App">
+    <Application.Styles>
+        <FluentTheme Mode="Light"/>
+    </Application.Styles>
+    <TrayIcon.Icons>
+        <TrayIcons>
+            <TrayIcon Icon="/Assets/avalonia-logo.ico">
+                <NativeMenu.Menu>
+                    <NativeMenu>
+                        <NativeMenuItem Header="Toggle Show" 
+                                        Command="{Binding ToggleShow}"/>
+                    </NativeMenu>
+                </NativeMenu.Menu>
+            </TrayIcon>
+        </TrayIcons>
+    </TrayIcon.Icons>
+</Application>
