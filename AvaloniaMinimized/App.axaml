@@ -6,11 +6,11 @@
     </Application.Styles>
     <TrayIcon.Icons>
         <TrayIcons>
-            <TrayIcon Icon="/Assets/avalonia-logo.ico">
+            <TrayIcon Icon="/Assets/avalonia-logo.ico" Clicked="TrayIcon_OnClicked">
                 <NativeMenu.Menu>
                     <NativeMenu>
                         <NativeMenuItem Header="Toggle Show" 
-                                        Command="{Binding ToggleShow}"/>
+                                        Command="{Binding ToggleShowCommand}"/>
                     </NativeMenu>
                 </NativeMenu.Menu>
             </TrayIcon>

@@ -1,3 +1,4 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -29,16 +30,22 @@ namespace AvaloniaMinimized
 
         private int count = 0;
         
-        public void ToggleShow()
+        public void ToggleShowCommand()
+        {
+            count++;
+            if (count == 2)
+            {
+                count = 0;
+                return;
+            }
+
+            ToggleShow();
+        }
+
+        private void ToggleShow()
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                count++;
-                if (count == 2)
-                {
-                    count = 0;
-                    return;
-                }
                 if (desktop.MainWindow is null)
                 {
                     desktop.MainWindow = new MainWindow();
@@ -58,6 +65,11 @@ namespace AvaloniaMinimized
                     desktop.MainWindow.Hide();
                 }
             }
+        }
+        
+        private void TrayIcon_OnClicked(object? sender, EventArgs e)
+        {
+            ToggleShow();
         }
     }
 }
